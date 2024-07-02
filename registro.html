@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styleregistro.css" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <!-- Firebase App (the core Firebase SDK) -->
+    <!-- Biblioteca principal de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- Módulo de autenticación de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- Módulo de Firestore de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="scriptsregistro.js" defer></script>
+</head>
+<body class="bg-light">
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></li>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="catálogo.html">CATÁLOGO</a></li>
+            <li class="icon-account"><a href=""><img src="icon-account.png" alt="Logo" /></a></li>
+            <li class="icon-carrito"><a href="carrito.html"><img src="icon-carrito.png" alt="Logo" /></a></li>
+        </ul>
+    </nav>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="login-container">
+            <div class="login-title">Registro</div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nombre" class="form-control" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="apellidos" class="form-control" placeholder="Apellidos" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="contrasena" class="form-control" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-custom">Registrarme</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

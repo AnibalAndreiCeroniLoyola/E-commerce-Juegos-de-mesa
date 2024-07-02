@@ -1,0 +1,116 @@
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Asegura que el menú esté en la parte superior */
+    width: 100%;
+    font-weight: bold;
+    background-color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+  }
+  
+.menu li {
+    float: left;
+    text-align: center;
+}
+  
+.menu li.logo {
+    margin-right: auto;
+}
+  
+.menu li a {
+    text-decoration: none;
+    color: white;
+    display: block; /* Cambiado a block para ocupar todo el ancho disponible */
+    text-align: center;
+    padding: 15px 25px; /* Aumentado el padding para mayor área de clic */
+    font-size: 14px;
+}
+  
+.menu li.logo img {
+    height: 70px;
+    padding: 0px;
+}
+  
+
+.menu li.icon-carrito img{
+    height: 30px;
+    padding: 0px;
+  }
+  
+  .menu li.icon-account img{
+    height: 20px;
+    padding: 0px;
+  }
+
+
+.login-container {
+    margin-top: 50px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    width: 400px;
+    padding: 25px;
+    border-radius: 8px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.login-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    height: 45px;
+}
+
+.btn-custom {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    border-radius: 25px;
+    height: 45px;
+}
+
+.btn-custom:hover {
+    background-color: #000000ee;
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .menu li a {
+        padding: 10px;
+        font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  
+    .menu li {
+        float: none;
+        width: 100%;
+    }
+  
+    .menu li.logo {
+        margin-right: 0;
+    }
+  
+    .menu li a {
+        padding: 15px 0;
+    }
+  
+    .master-container {
+        padding: 10px;
+        margin-top: 60px; /* Ajusta el margen superior para dispositivos móviles */
+    }
+  }
+  

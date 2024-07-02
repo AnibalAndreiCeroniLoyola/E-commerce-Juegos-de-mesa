@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylelogin.css" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="scriptslogin.js" defer></script>
+</head>
+
+<body class="bg-light">
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></li>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="catálogo.html">CATÁLOGO</a></li>
+            <li class="icon-account"><a href=""><img src="icon-account.png" alt="Logo" /></a></li>
+            <li class="icon-carrito"><a href="carrito.html"><img src="icon-carrito.png" alt="Logo" /></a></li>
+        </ul>
+    </nav>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="login-container">
+            <div class="login-title">Inicio de sesión</div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Contraseña" required>
+                </div>
+                <div class="form-group">
+                </div>
+                <button type="submit" class="btn btn-custom">Iniciar sesión</button>
+            </form>
+
+            <p class="signup-link">
+                Aún no tienes una cuenta?
+                <a href="registro.html" class="signup-link link"> Registrarme</a>
+            </p>
+
+        </div>
+    </div>
+</body>
+</html>
