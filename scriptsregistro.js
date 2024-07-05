@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Registro exitoso!");
                 alert("Registro exitoso!");
                 // Redireccionar o realizar otra acción después del registro
+                console.log("Redireccionando a login.html");
+                window.location.href = "login.html";
             })
             .catch((error) => {
                 console.error("Error al registrarse: ", error.message);
