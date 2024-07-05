@@ -1,0 +1,141 @@
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Asegura que el menú esté en la parte superior */
+    width: 100%;
+    font-weight: bold;
+    background-color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+  }
+  
+  .menu li {
+    float: left;
+    text-align: center;
+    list-style: none;
+  }
+  
+  .menu li.logo {
+    margin-right: auto;
+    list-style: none;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: white;
+    display: block; /* Cambiado a block para ocupar todo el ancho disponible */
+    text-align: center;
+    padding: 15px 25px; /* Aumentado el padding para mayor área de clic */
+    font-size: 14px;
+    list-style: none;
+  }
+  
+.menu li.logo img {
+    height: 70px;
+    padding: 0px;
+    list-style: none;
+}
+
+.menu li.icon-carrito img{
+    height: 30px;
+    padding: 0px;
+  }
+  
+  .menu li.icon-account img{
+    height: 20px;
+    padding: 0px;
+  }
+
+.form {
+    margin-top: 100px;
+    background: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    padding-top: 50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form .label {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form .label .title {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+.form .input-field {
+    height: 50px;
+    text-indent: 15px;
+    border-radius: 15px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #21262e;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+}
+
+.form .split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.form .split label {
+    flex: 1; /* Distribuye el espacio disponible */
+}
+
+.checkout-btn {
+    width: 10%;
+    text-decoration: none;
+    color: white;
+    background-color: #FF8413;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 25px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Familia de fuentes */
+  }
+  
+  .checkout-btn:hover {
+    color: white;
+    background-color: #FFA633;
+    text-decoration: none;
+  }
+
+.info{
+    background-color: rgb(35, 35, 35);
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 300px;
+    h2{
+      padding-top: 30px;
+      padding: 10px;
+        color: white;
+        font-size: medium;
+        text-align: left;
+    }
+    padding: 10px;
+    list-style: none;
+}
+  
+.info li.logo img {
+    height: 100px;
+    padding: 0px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+

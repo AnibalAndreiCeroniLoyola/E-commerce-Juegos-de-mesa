@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PANTALLA DE PAGOS</title>
-    <link rel="stylesheet" href="stylecheckout.css">
+    <title>DATOS DE ENVÍO</title>
+    <link rel="stylesheet" href="styleentrega.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" href="favicon.png" type="image/png">
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-    <script src="scriptscheckout.js" defer></script>
+    <script src="scriptsentrega.js" defer></script>
 </head>
 
 <body>
@@ -25,58 +25,58 @@
     </nav>
 
     <div class="add-card page">
-        <form class="form" id="paymentForm" action="checkout.html" method="POST">
-            <label for="name" class="label">
-                <span class="title">Nombre completo del titular de la tarjeta</span>
+        <form class="form" id="checkoutForm">
+            <label for="region" class="label">
+                <span class="title">Región</span>
                 <input
                     class="input-field"
                     type="text"
-                    id="name"
-                    name="titular-tarjeta"
-                    placeholder="Ingresa tu nombre completo"
+                    id="region"
+                    name="region"
+                    placeholder="Ingresa la región"
                     required
                 />
             </label>
-            <label for="serialCardNumber" class="label">
-                <span class="title">Número de tarjeta</span>
+            <label for="ciudad" class="label">
+                <span class="title">Ciudad</span>
                 <input
-                    id="serialCardNumber"
+                    id="ciudad"
                     class="input-field"
                     type="text"
-                    name="num-tarjeta"
-                    placeholder="0000 0000 0000 0000"
+                    name="ciudad"
+                    placeholder="Ingresa la ciudad"
                     required
                 />
             </label>
             <div class="split">
-                <label for="ExDate" class="label">
-                    <span class="title">Fecha de vencimiento</span>
+                <label for="recibeNombre" class="label">
+                    <span class="title">Nombre</span>
                     <input
-                        id="ExDate"
+                        id="recibeNombre"
                         class="input-field"
                         type="text"
-                        name="fecha-vencimiento"
-                        placeholder="MM/YY"
+                        name="recibeNombre"
+                        placeholder="Nombre de la persona que recibirá el pedido"
                         required
                     />
                 </label>
-                <label for="cvv" class="label">
-                    <span class="title">CVV</span>
+                <label for="direccion" class="label">
+                    <span class="title">Dirección</span>
                     <input
-                        id="cvv"
+                        id="direccion"
                         class="input-field"
                         type="text"
-                        name="cvv"
-                        placeholder="CVV"
+                        name="direccion"
+                        placeholder="Dirección"
                         required
                     />
                 </label>
             </div>
-            <input class="checkout-btn" type="submit" value="PAGAR" />
+            <input class="checkout-btn" type="submit" value="IR A PAGAR" />
         </form>
     </div>
     
-      
+    
     <div class="info" id="info">
 
         <div class="contenedor-info">
