@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((userCredential) => {
                 console.log("Inicio de sesión exitoso!");
                 alert("Inicio de sesión exitoso!");
-                // Redireccionar o realizar otra acción después del inicio de sesión
+                window.location.assign("https://anibalandreiceroniloyola.github.io/E-commerce-Juegos-de-mesa/cat%C3%A1logo.html")
             })
             .catch((error) => {
                 console.error("Error al iniciar sesión: ", error.message);

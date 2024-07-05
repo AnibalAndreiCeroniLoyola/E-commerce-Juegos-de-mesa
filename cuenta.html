@@ -7,6 +7,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="stylecuenta.css" rel="stylesheet">
     <link rel="icon" href="favicon.png" type="image/png">
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="scriptslogin.js" defer></script>
 </head>
 <body class="bg-light">
     <nav>
@@ -14,17 +17,22 @@
             <li class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></li>
             <li><a href="index.html">INICIO</a></li>
             <li><a href="catálogo.html">CATÁLOGO</a></li>
-            <li><a href="">MI CUENTA</a></li>
-            <li><a href="carrito.html">CARRITO</a></li>
+            <li class="icon-carrito"><a href="carrito.html"><img src="icon-carrito.png" alt="Logo" /></a></li>
         </ul>
     </nav>
 
-    <div>
-        <div>
-            <h1>Bienvenido!</h1>
-            <p>Conexión exitosa.</p>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="cuenta-container">
+            <div class="login-title">Mi cuenta</div>
+            <form id="loginForm">
+                <button onclick="location.href='/infousuario.html';" class="btn btn-custom">Información personal</button>
+                <button onclick="location.href='/pedidos.html';" class="btn btn-custom">Mis pedidos</button>
+                <button onclick="location.href='/direcciones.html';" class="btn btn-custom">Direcciones</button>
+            </form>
+            
         </div>
     </div>
+    
 
 </body>
 </html>
