@@ -11,10 +11,29 @@ var firebaseConfig = {
 // Inicializar Firebase
 firebase.initializeApp(firebaseConfig);
 
+
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
+
     // Obtener el elemento del botón de cuenta
     var accountLink = document.querySelector('.icon-account a');
+
+    // Función para verificar el estado de autenticación del usuario
+    function checkAuthState() {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // Usuario está autenticado
+                console.log("Usuario autenticado:", user.email);
+                // Aquí puedes realizar acciones adicionales si el usuario está autenticado
+            } else {
+                // Usuario no está autenticado
+                console.log("Usuario no autenticado");
+            }
+        });
+    }
+
+    // Llamar a la función para verificar el estado de autenticación
+    checkAuthState();
 
     // Agregar evento de clic al botón de cuenta
     if (accountLink) {
@@ -40,19 +59,28 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
 
             var email = document.querySelector('#loginForm input[type="email"]').value;
-            var contrasena = document.querySelector('#loginForm input[type="password"]').value;
+            var password = document.querySelector('#loginForm input[type="password"]').value;
 
-            firebase.auth().signInWithEmailAndPassword(email, contrasena)
-                .then((userCredential) => {
-                    console.log("Inicio de sesión exitoso!");
-                    alert("Inicio de sesión exitoso!");
-                    window.location.href = "cuenta.html";
+            // Iniciar sesión con Firebase Auth
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+                .then(function () {
+                    return firebase.auth().signInWithEmailAndPassword(email, password);
                 })
-                .catch((error) => {
-                    console.error("Error al iniciar sesión: ", error.message);
-                    alert("Error al iniciar sesión: " + error.message);
+                .then(function (userCredential) {
+                    // Éxito en el inicio de sesión
+                    var user = userCredential.user;
+                    console.log("Inicio de sesión exitoso para: " + user.email);
+                    alert("Inicio de sesión exitoso!");
+                    window.location.href = "cuenta.html"; // Redirigir a la página de cuenta
+                })
+                .catch(function (error) {
+                    // Manejar errores de inicio de sesión
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.error("Error al iniciar sesión: ", errorMessage);
+                    alert("Error al iniciar sesión: " + errorMessage);
                 });
         });
-
     }
+
 });

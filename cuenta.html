@@ -9,7 +9,7 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-    <script src="scriptslogin.js" defer></script>
+    <script type="module" src="scriptslogin.js" defer></script>
 </head>
 <body class="bg-light">
 
@@ -20,6 +20,7 @@
             <li><a href="catálogo.html">CATÁLOGO</a></li>
             <li class="icon-account"><a id="accountLink" href="#"><img src="icon-account.png" alt="Logo" /></a></li>
             <li class="icon-carrito"><a href="carrito.html"><img src="icon-carrito.png" alt="Logo" /></a></li>
+            <li><button onclick="cerrarSesion()">Cerrar sesión</button></li>
         </ul>
     </nav>
 

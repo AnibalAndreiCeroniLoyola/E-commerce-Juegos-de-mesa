@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         firebase.auth().createUserWithEmailAndPassword(email, contrasena)
             .then((userCredential) => {
                 // Guardar información adicional del usuario en Firestore
-                return db.collection("users").doc(userCredential.user.uid).set({
+                return db.collection("usuarios").doc(userCredential.user.uid).set({
                     nombre: nombre,
                     apellidos: apellidos,
                     email: email
