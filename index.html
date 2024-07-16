@@ -36,14 +36,15 @@
                     <div class="text">Ingresar</div>
                   </button>                  
             </li>
+            <li><button id="cerrarSesionBtn" onclick="cerrarSesion()" style="display: none;">Cerrar sesión</button></li>
         </ul>
     </nav>
 
     <ul class="menu-bajo">
         <li><a href="">INICIO</a></li>
         <li><a href="catálogo.html">CATÁLOGO</a></li>
-        <li><a href="">SOBRE NOSOTROS</a></li>
-        <li><a href="">TÉRMINOS Y CONDICIONES</a></li>
+        <li><a href="nosotros.html">SOBRE NOSOTROS</a></li>
+        <li><a href="terminos.html">TÉRMINOS Y CONDICIONES</a></li>
     </ul>
 
     <header class="hero">
@@ -167,10 +168,8 @@
             <h2 class="titulo">INFORMACIÓN</h2>
             <div class="block-content">
                 <ul>
-                    <li>Términos y condiciones</li>
-                    <li>Políticas de envío</li>
-                    <li>Políticas de devolución</li>
-                    <li>Política de privacidad y protección de datos</li>
+                    <li><a href="terminos.html">Términos y condiciones</a></li>
+                    <li><a href="nosotros.html">Sobre nosotros</a></li>
                 </ul>
             </div>
         </div>
@@ -187,6 +186,7 @@
           window.location.href = 'carrito.html';
         });
       </script>
+
 
 </body>
 </html>

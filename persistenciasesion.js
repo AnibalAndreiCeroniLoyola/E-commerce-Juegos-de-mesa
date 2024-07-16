@@ -23,13 +23,17 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 // Función para verificar el estado de autenticación del usuario
 function checkAuthState() {
     firebase.auth().onAuthStateChanged(function (user) {
+        const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
         if (user) {
             // Usuario está autenticado
             console.log("Usuario autenticado:", user.email);
-            // Aquí puedes realizar acciones adicionales si el usuario está autenticado
+            // Mostrar el botón de cerrar sesión
+            cerrarSesionBtn.style.display = 'block';
         } else {
             // Usuario no está autenticado
             console.log("Usuario no autenticado");
+            // Ocultar el botón de cerrar sesión
+            cerrarSesionBtn.style.display = 'none';
         }
     });
 }

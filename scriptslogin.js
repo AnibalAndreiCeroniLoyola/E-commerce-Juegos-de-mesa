@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // Verificar si hay un usuario autenticado
             var user = firebase.auth().currentUser;
             if (user) {
-                // Si el usuario está autenticado, redirigir a la página de cuenta
-                window.location.href = "cuenta.html";
+                // Si el usuario está autenticado, redirigir al inicio
+                window.location.href = "index.html";
             } else {
                 // Si no está autenticado, redirigir al inicio de sesión
                 window.location.href = "login.html";
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     var user = userCredential.user;
                     console.log("Inicio de sesión exitoso para: " + user.email);
                     alert("Inicio de sesión exitoso!");
-                    window.location.href = "cuenta.html"; // Redirigir a la página de cuenta
+                    window.location.href = "index.html"; // Redirigir a la página de cuenta
                 })
                 .catch(function (error) {
                     // Manejar errores de inicio de sesión

@@ -27,7 +27,7 @@
                 <span class="quantity"></span>
               </button>
             </li>
-            <li><button onclick="cerrarSesion()">Cerrar sesión</button></li>
+            <li><button id="cerrarSesionBtn" onclick="cerrarSesion()" style="display: none;">Cerrar sesión</button></li>
         </ul>
     </nav>
 
@@ -37,7 +37,6 @@
             <form id="loginForm">
                 <button onclick="location.href='/infousuario.html';" class="btn btn-custom">Información personal</button>
                 <button onclick="location.href='/pedidos.html';" class="btn btn-custom">Mis pedidos</button>
-                <button onclick="location.href='/direcciones.html';" class="btn btn-custom">Direcciones</button>
             </form>  
         </div>
     </div>
