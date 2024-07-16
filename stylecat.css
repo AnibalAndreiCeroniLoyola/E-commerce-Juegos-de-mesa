@@ -5,12 +5,12 @@
     display: flex;
     align-items: center;
     position: fixed;
-    top: 0; /* Asegura que el menú esté en la parte superior */
+    top: 0;
     width: 100%;
     font-weight: bold;
     background-color: black;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    z-index: 1000;
   }
   
   .menu li {
@@ -25,9 +25,9 @@
   .menu li a {
     text-decoration: none;
     color: white;
-    display: block; /* Cambiado a block para ocupar todo el ancho disponible */
+    display: block;
     text-align: center;
-    padding: 15px 25px; /* Aumentado el padding para mayor área de clic */
+    padding: 15px 25px;
     font-size: 14px;
   }
   
@@ -36,15 +36,41 @@
     padding: 0px;
   }
   
-  .menu li.icon-carrito img{
-    height: 30px;
-    padding: 0px;
+  .menu-bajo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    font-weight: bold;
+    background-color: rgb(47, 47, 47);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 999;
+    text-align: center;
   }
   
-  .menu li.icon-account img{
-    height: 20px;
-    padding: 0px;
+  .menu-bajo li {
+    float: left;
+    text-align: center;
   }
+  
+  .menu-bajo li.logo {
+    margin-right: auto;
+  }
+  
+  .menu-bajo li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 15px 25px;
+    font-size: 14px;
+  }
+
   
 .hero{
     width: 100%;
@@ -60,9 +86,10 @@
     color: white;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 700px;
     justify-content: center;
     align-items: center;
+    margin-top: 80px;
   }
   
   .hero h1{
@@ -80,21 +107,142 @@
     align-items: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 20px;
+  }
+
+  .Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(163, 142, 255);
+  }
+  
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 18px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  
+  .Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 10px;
+  }
+  
+  .Btn:hover .text {
+    opacity: 1;
+    width: 65%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }
+  
+  .btn-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+  }
+  
+  .btn-cart::after {
+    content: attr(data-quantity);
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    font-size: 15px;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s linear;
+    top: 115%;
+  }
+  
+  .icon-cart {
+    width: 24.38px;
+    height: 30.52px;
+    transition: .2s linear;
+  }
+  
+  .icon-cart path {
+    fill: white;
+    transition: .2s linear;
+  }
+  
+  .btn-cart:hover > .icon-cart {
+    transform: scale(1.2);
+  }
+  
+  .btn-cart:hover > .icon-cart path {
+    fill: white;
+  }
+  
+  .btn-cart:hover::after {
+    visibility: visible;
+    opacity: 1;
+    top: 105%;
+  }
+  
+  .quantity {
+    display: none;
   }
   
   .card-container {
-    max-width: 100%; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor en la pantalla */
+    max-width: 100%;
+    margin: 0 auto; 
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Espacio entre tarjetas */
-    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 20px;
+    justify-content: center;
     padding: 30px;
   }
   
 .card {
-  width: 200px; /* Ancho fijo de cada tarjeta */
+  width: 200px;
   height: 300px;
   padding: 0.8em;
   background: #f5f5f5;
