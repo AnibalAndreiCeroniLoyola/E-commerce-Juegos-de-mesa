@@ -14,6 +14,15 @@ var db = firebase.firestore();
 
 // Función para manejar el clic en el botón "CONFIRMAR PEDIDO"
 function guardarCarritoEnFirestore() {
+    // Verificar el estado de autenticación actual
+    var user = firebase.auth().currentUser;
+    if (!user) {
+        // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+        window.location.href = "login.html";
+        return;
+    }
+
+    // Continuar con la lógica para guardar el carrito en Firestore
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     // Verifica si la colección 'carrito' existe; si no, la crea
@@ -51,6 +60,7 @@ function guardarCarritoEnFirestore() {
         // Manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
     });
 }
+
 
 // Función para generar un ID único para el producto (opcional)
 function generarIdProducto(producto) {
