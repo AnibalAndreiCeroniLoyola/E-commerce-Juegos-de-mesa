@@ -29,7 +29,7 @@
     color: white;
     display: block; /* Cambiado a block para ocupar todo el ancho disponible */
     text-align: center;
-    padding: 15px 25px; /* Aumentado el padding para mayor área de clic */
+    padding: 15px 30px; /* Aumentado el padding para mayor área de clic */
     font-size: 14px;
     list-style: none;
   }
@@ -291,7 +291,7 @@
     width: 10%;
     text-decoration: none;
     color: white;
-    background-color: #FF8413;
+    background-color: #00b285;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -303,7 +303,7 @@
   
   .checkout-btn:hover {
     color: white;
-    background-color: #FFA633;
+    background-color: #00b274;
     text-decoration: none;
   }
 

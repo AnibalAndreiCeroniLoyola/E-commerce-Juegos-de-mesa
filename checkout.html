@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="stylecheckout.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="imágenes/favicon.png" type="image/png">
+    <!-- Conectores funcioalidades Firestore -->
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
@@ -17,12 +18,13 @@
 </head>
 
 <body>
-
+    <!-- Estructura menú principal -->
     <nav>
         <ul class="menu">
-            <li class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></li>
+            <li class="logo"><a href="index.html"><img src="imágenes/logo.png" alt="Logo" /></a></li>
             <li>
                 <button data-quantity="0" class="btn-cart" >
+                    <!-- Diseño icono carrito -->
                 <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
                   <title>icon-cart</title>
                   <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
@@ -32,25 +34,27 @@
             </li>
             <li>
                 <button class="Btn">
-  
+                    <!-- Diseño botón -->
                     <div class="sign"><svg viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></div>
                     
-                    <div class="text">Login</div>
+                    <div class="text">Ingresar</div>
                   </button>                  
             </li>
             <li>
+                <!-- Conexión a evento y botón oculto si no hay una sesión activa-->
                 <button id="cerrarSesionBtn" class="Btn2" onclick="cerrarSesion()" style="display: none;">
                   <div class="sign2">
+                    <!-- Diseño botón -->
                     <svg viewBox="0 0 512 512">
                       <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
                     </svg>
                   </div>
-                  <div class="text2">Cerrar sesión</div>
+                  <div class="text2"></div>
                 </button>
               </li>   
         </ul>
     </nav>
-
+    <!-- Estructura formulario -->
     <div class="add-card page">
         <form class="form" id="paymentForm" action="checkout.html" method="POST">
             <label for="name" class="label">
@@ -103,11 +107,11 @@
         </form>
     </div>
     
-      
+    <!-- Estructura footer -->
     <div class="info" id="info">
 
         <div class="contenedor-info">
-            <li class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></li>
+            <li class="logo"><a href="index.html"><img src="imágenes/logo.png" alt="Logo" /></a></li>
             <h2 class="titulo">INFORMACIÓN</h2>
             <div class="block-content">
                 <ul>
@@ -119,6 +123,7 @@
         
     </div>
 
+    <!-- Conectores para eventos de botones -->
     <script>
         document.querySelector('.Btn').addEventListener('click', function() {
           window.location.href = 'login.html';

@@ -1,4 +1,4 @@
-// Firebase configuration
+//Configuración de Firestore
 var firebaseConfig = {
     apiKey: "AIzaSyD0xV0NVmEbGrolEtIyPbB9GiWgnLYxVKI",
     authDomain: "dragonmaze-92a4a.firebaseapp.com",
@@ -8,34 +8,31 @@ var firebaseConfig = {
     appId: "1:644433599328:web:63566e2df268b35b1c9c05"
 };
 
-// Inicializar Firebase
+//Inicializar Firestore
 firebase.initializeApp(firebaseConfig);
 
 
-// Esperar a que el DOM esté completamente cargado
+//Cargar DOM
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Obtener el elemento del botón de cuenta
+    //Obtener datos del botón de cuenta
     var accountLink = document.querySelector('.icon-account a');
 
-    // Función para verificar el estado de autenticación del usuario
+    //Función para verificar el estado de autenticación del usuario
     function checkAuthState() {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                // Usuario está autenticado
                 console.log("Usuario autenticado:", user.email);
-                // Aquí puedes realizar acciones adicionales si el usuario está autenticado
             } else {
-                // Usuario no está autenticado
                 console.log("Usuario no autenticado");
             }
         });
     }
 
-    // Llamar a la función para verificar el estado de autenticación
+    //Llamar a la función para verificar el estado de autenticación
     checkAuthState();
 
-    // Agregar evento de clic al botón de cuenta
+    //Agregar evento de click al botón de cuenta
     if (accountLink) {
         accountLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -43,16 +40,16 @@ document.addEventListener("DOMContentLoaded", function () {
             // Verificar si hay un usuario autenticado
             var user = firebase.auth().currentUser;
             if (user) {
-                // Si el usuario está autenticado, redirigir al inicio
+                //Si el usuario está conectado, se redirecciona al inicio
                 window.location.href = "index.html";
             } else {
-                // Si no está autenticado, redirigir al inicio de sesión
+                //Si no, se le vuelve a redirigir al login para que inicie sesión
                 window.location.href = "login.html";
             }
         });
     }
 
-    // Agregar evento de submit al formulario de inicio de sesión
+    //Agregar evento de submit al formulario de inicio de sesión
     var loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function (e) {
@@ -61,20 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
             var email = document.querySelector('#loginForm input[type="email"]').value;
             var password = document.querySelector('#loginForm input[type="password"]').value;
 
-            // Iniciar sesión con Firebase Auth
+            //Iniciar sesión con Firebase Auth
             firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
                 .then(function () {
                     return firebase.auth().signInWithEmailAndPassword(email, password);
                 })
                 .then(function (userCredential) {
-                    // Éxito en el inicio de sesión
+                    //Inicio de sesión exitoso
                     var user = userCredential.user;
                     console.log("Inicio de sesión exitoso para: " + user.email);
                     alert("Inicio de sesión exitoso!");
-                    window.location.href = "index.html"; // Redirigir a la página de cuenta
+                    window.location.href = "index.html"; //Redireccionar al inicio
                 })
                 .catch(function (error) {
-                    // Manejar errores de inicio de sesión
+                    //Manejar errores de inicio de sesión
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     console.error("Error al iniciar sesión: ", errorMessage);

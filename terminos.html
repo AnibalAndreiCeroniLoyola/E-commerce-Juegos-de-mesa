@@ -4,21 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INICIO</title>
+    <title>TÉRMINOS Y CONDICIONES</title>
     <link rel="stylesheet" href="styleterminos.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="imágenes/favicon.png" type="image/png">
+    <!-- Conectores Firestore -->
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- Conector con archivo JavaScript que maneja la persistencia de sesión en todo el sitio web -->
     <script src="persistenciasesion.js"></script>
 </head>
 
+<!-- Estructura -->
 <body class="bg-light">
-
+      <!--Menú principal e items dentro de el-->
     <nav>
         <ul class="menu">
-            <li class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></li>
+            <li class="logo"><a href="index.html"><img src="imágenes/logo.png" alt="Logo" /></a></li>
             <li>
                 <button data-quantity="0" class="btn-cart" >
                 <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
@@ -30,25 +33,26 @@
             </li>
             <li>
                 <button class="Btn">
-  
+                  <!-- Diseño de botón -->
                     <div class="sign"><svg viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></div>
-                    
                     <div class="text">Ingresar</div>
                   </button>                  
             </li>
             <li>
+              <!-- Manejo de evento de botón "Cerrar sesión" se especifica que el botón este oculto en caso de no haber una sesión activa -->
               <button id="cerrarSesionBtn" class="Btn2" onclick="cerrarSesion()" style="display: none;">
                 <div class="sign2">
+                  <!-- Diseño de botón -->
                   <svg viewBox="0 0 512 512">
                     <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
                   </svg>
                 </div>
-                <div class="text2">Cerrar sesión</div>
+                <div class="text2"></div>
               </button>
             </li>   
         </ul>
     </nav>
-
+    <!-- Menú secundario-->
     <ul class="menu-bajo">
         <li><a href="index.html">INICIO</a></li>
         <li><a href="catálogo.html">CATÁLOGO</a></li>
@@ -56,32 +60,37 @@
         <li><a href="terminos.html">TÉRMINOS Y CONDICIONES</a></li>
     </ul>
     
+    <!-- Contenedor para los términos y condiciones -->
     <div class="terminos-contenedor">
 
       <h2>Términos y Condiciones</h2>
 
       <h3>1. Introducción</h3>
-      <p>Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web.</p>
+      <p>Bienvenido a Dragon Maze. Estos Términos y Condiciones rigen el uso de nuestro sitio web y la compra de productos en nuestra tienda en línea. 
+        Al acceder a nuestro sitio y realizar una compra, aceptas cumplir con estos términos.</p>
   
-      <h3>2. Aceptación de los Términos</h3>
-      <p>Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones en su totalidad. No sigas utilizando el sitio web si no estás de acuerdo con todos los términos y condiciones establecidos en esta página.</p>
+      <h3>2. Aceptación de los Términos y Condiciones</h3>
+      <p>Al realizar compras en nuestro sitio web, significa que estas aceptando nuestros Términos y Condiciones en su totalidad.</p>
   
-      <h3>3. Uso del Sitio Web</h3>
-      <ul>
-        <li>3.1. El contenido del sitio web es solo para información general.</li>
-        <li>3.2. No se permite el uso del sitio web de manera que pueda dañar, deshabilitar, sobrecargar o deteriorar el sitio web.</li>
-      </ul>
+      <h3>3. Registro de cuenta</h3>
+      <p>Para realizar compras en nuestro sitio web, puedes registrarte creando una cuenta. Debes proporcionar información precisa y actualizada. 
+        Usted como cliente tiene la responsabilidad de mantener la confidencialidad de su cuenta y contraseña, 
+        así como de todas las actividades que ocurran bajo su cuenta.</p>
+
+      <h3>4. Privacidad</h3>
+      <p>Tu privacidad es importante para nosotros. 
+        Como empresa, estamos preocupados por proteger tu información personal en todo momento.</p>
   
-      <h3>4. Modificaciones</h3>
-      <p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento sin previo aviso. Al usar este sitio web, aceptas estar sujeto a la versión actual de estos términos y condiciones.</p>
-  
-      <h3>5. Ley Aplicable</h3>
-      <p>Estos términos y condiciones se rigen por las leyes de [tu país].</p>
+      <h3>5. Contacto</h3>
+      <p>Si tienes alguna pregunta o inquietud sobre estos Términos y Condiciones, puedes contactarnos a través de nuestro correo electrónico: soporte@dragonmaze.com
+
+      </p>
     </div>
     
+    <!-- Estructura footer -->
     <div class="info" id="info">
         <div class="contenedor-info">
-            <li class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></li>
+            <li class="logo"><a href="index.html"><img src="imágenes/logo.png" alt="Logo" /></a></li>
             <h2 class="titulo">INFORMACIÓN</h2>
             <div class="block-content">
                 <ul>
@@ -91,7 +100,8 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- Conectores para eventos de botones de Ingresar y Carrito -->
     <script>
         document.querySelector('.Btn').addEventListener('click', function() {
           window.location.href = 'login.html';

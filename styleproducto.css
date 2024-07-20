@@ -20,6 +20,7 @@
 
 .menu li.logo {
   margin-right: auto;
+  list-style: none;
 }
 
 .menu li a {
@@ -296,7 +297,7 @@
     gap: 50px; /* Espacio entre .hero-texto-cat y .card-container */
     max-width: 1200px; /* Ancho máximo del contenedor */
     margin: 0 auto; /* Centra el contenido horizontalmente */
-    padding-top: 150px;
+    padding-top: 200px;
     padding-bottom: 100px;
     justify-content: space-between;
 }
@@ -346,7 +347,7 @@
 
 
 .cat-btn {
-    background-color: #FF8413;
+    background-color: #00b285;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -361,7 +362,7 @@
   }
   
   .cat-btn:hover {
-    background-color: #FF6C00;
+    background-color: #00b274;
     color: white;
     text-decoration: none;
   }
@@ -370,7 +371,7 @@
     background-color: rgb(35, 35, 35);
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    height: 300px;
+    height: 250px;
     h2{
       padding-top: 30px;
       padding: 10px;

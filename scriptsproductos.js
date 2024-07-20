@@ -1,4 +1,4 @@
-// Configura tu Firebase
+//Configuración de Firestore
 var firebaseConfig = {
     apiKey: "AIzaSyD0xV0NVmEbGrolEtIyPbB9GiWgnLYxVKI",
     authDomain: "dragonmaze-92a4a.firebaseapp.com",
@@ -8,26 +8,33 @@ var firebaseConfig = {
     appId: "1:644433599328:web:63566e2df268b35b1c9c05"
 };
 
-// Inicializa Firebase
+//Inicializar Firestore
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-// Función para manejar el clic en el botón de comprar
+//Función para el click en el botón de comprar
 function agregarProductoACarrito() {
     var producto = {
         nombre: "Juego Dragon Maze",
         precio: 24990,
         descripcion: "Un emocionante juego de mesa",
-        imagen: "./imgproductocarrito.png"
+        imagen: "imágenes/imgproductocarrito.png"
     };
 
-    // Usa el nombre del producto como ID (opcional)
+    //Usa el nombre del producto como ID
     var idProducto = producto.nombre.replace(/\s+/g, '-').toLowerCase();
+    var user = firebase.auth().currentUser;
 
-    // Referencia a la colección 'productos' y al documento con el ID específico
+    if (!user) {
+        // Si el usuario no está autenticado, redireccionar a la página de login
+        window.location.href = "login.html";
+        return;
+    }
+
+    //Referencia a la colección 'productos' y al documento con el ID específico
     var docRef = db.collection("productos").doc(idProducto);
 
-    // Realiza la transacción para actualizar el stock en Firestore
+    //Transacción para actualizar el stock del producto en Firestore
     db.runTransaction(function(transaction) {
         return transaction.get(docRef).then(function(doc) {
             if (!doc.exists) {
@@ -46,31 +53,35 @@ function agregarProductoACarrito() {
     }).then(function(newStock) {
         console.log("Stock actualizado a: ", newStock);
 
-        // Crear la colección 'carrito' si no existe y agregar el producto
+        //Crear la colección 'carrito' si no existe y agregar el producto
         var carritoRef = db.collection("carrito");
         carritoRef.get().then(function(querySnapshot) {
             if (querySnapshot.empty) {
-                // La colección 'carrito' no existe, crea un documento con el producto
+                //La colección 'carrito' no existe, crea un documento con el producto
                 return carritoRef.doc(idProducto).set(producto);
             } else {
-                // La colección 'carrito' ya existe, simplemente agrega el producto
+                //La colección 'carrito' ya existe, se agrega el producto
                 return carritoRef.doc(idProducto).set(producto);
             }
         }).then(function() {
             console.log("Producto agregado al carrito en Firestore: ", producto);
-            // Aquí puedes redirigir al carrito u otra página después de agregar al carrito
+
+            //Crear o actualizar la subcolección 'carritoCliente' en 'clientes'
+            var carritoClienteRef = db.collection("clientes").doc(user.uid).collection("carritoCliente");
+            return carritoClienteRef.doc(idProducto).set(producto);
+        }).then(function() {
+            console.log("Producto agregado a 'carritoCliente' en Firestore");
+            //Redireccionar al carrito
             window.location.href = "carrito.html";
         }).catch(function(error) {
             console.error("Error al agregar producto al carrito en Firestore: ", error);
-            // Manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
         });
     }).catch(function(error) {
         console.error("Error actualizando stock: ", error);
-        // Manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
     });
 }
 
-// Establecer persistencia de autenticación local al iniciar Firebase
+//Establecer persistencia de autenticación local al iniciar Firebase
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
     .then(function () {
         console.log("Persistencia de autenticación establecida correctamente");
@@ -79,17 +90,15 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         console.error("Error al establecer persistencia de autenticación:", error);
     });
 
-// Función para verificar el estado de autenticación del usuario
+//Función para verificar el estado de autenticación del usuario
 function checkAuthState() {
     firebase.auth().onAuthStateChanged(function (user) {
         const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
         if (user) {
-            // Usuario está autenticado
             console.log("Usuario autenticado:", user.email);
             // Mostrar el botón de cerrar sesión
             cerrarSesionBtn.style.display = 'block';
         } else {
-            // Usuario no está autenticado
             console.log("Usuario no autenticado");
             // Ocultar el botón de cerrar sesión
             cerrarSesionBtn.style.display = 'none';
@@ -97,18 +106,16 @@ function checkAuthState() {
     });
 }
 
-// Verificar el estado de autenticación al cargar la página
+//Verificar el estado de autenticación al cargar la página
 checkAuthState();
 
-// Función para cerrar sesión
+//Función para cerrar sesión
 function cerrarSesion() {
     firebase.auth().signOut().then(() => {
-        // Cerrar sesión exitosamente
         console.log("Sesión cerrada exitosamente");
-        // Redirigir a la página de inicio o a donde prefieras
+        // Redireccionar al inicio
         window.location.href = "index.html";
     }).catch((error) => {
-        // Ocurrió un error al cerrar sesión
         console.error("Error al cerrar sesión", error);
     });
 }
