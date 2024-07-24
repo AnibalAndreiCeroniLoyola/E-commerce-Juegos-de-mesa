@@ -381,6 +381,11 @@
     }
     padding: 10px;
     list-style: none;
+    .imagen-wsp{
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
 }
 
 .info li.logo img {
