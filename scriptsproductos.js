@@ -18,7 +18,7 @@ function agregarProductoACarrito() {
         nombre: "Juego Dragon Maze",
         precio: 24990,
         descripcion: "Un emocionante juego de mesa",
-        imagen: "imágenes/imgproductocarrito.png"
+        imagen: "imágenes/imgproducto1.jpg"
     };
 
     //Usa el nombre del producto como ID

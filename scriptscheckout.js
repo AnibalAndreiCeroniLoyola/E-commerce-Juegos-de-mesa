@@ -150,3 +150,78 @@ function guardarDatosCliente(datosUsuario, datosPago) {
         console.error("Error al guardar datos de pago en Firestore: ", error);
     });
 }
+
+//Formato de ingreso de número de tarjeta (Se crean los espacios de forma automática y limita la cantidad de números)
+document.addEventListener('DOMContentLoaded', function () {
+    const serialCardNumber = document.getElementById('serialCardNumber');
+
+    serialCardNumber.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\s+/g, ''); //Elimina todos los espacios
+        if (value.length > 16) {
+            value = value.slice(0, 16); //Limita el número de tarjeta a 16 dígitos
+        }
+
+        //Mantener la posición del cursor al formatear el valor
+        const formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+        const selectionStart = serialCardNumber.selectionStart;
+
+        serialCardNumber.value = formattedValue;
+
+        //Ajustar la posición del cursor después de formatear
+        if (selectionStart % 5 === 0 && selectionStart > 0 && e.inputType !== 'deleteContentBackward') {
+            serialCardNumber.setSelectionRange(selectionStart + 1, selectionStart + 1);
+        } else {
+            serialCardNumber.setSelectionRange(selectionStart, selectionStart);
+        }
+    });
+});
+
+//Formato de ingreso de Fecha de vencimiento (Crear el / y límite de números)
+document.addEventListener('DOMContentLoaded', function () {
+    const exDate = document.getElementById('ExDate');
+
+    exDate.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');//Elimina cualquier carácter no numérico
+
+        if (value.length > 4) {
+            value = value.slice(0, 4);//Limita la fecha a 4 dígitos (MMYY)
+        }
+
+        //Añade el slash después de los primeros dos dígitos
+        if (value.length > 2) {
+            value = value.slice(0, 2) + '/' + value.slice(2);
+        }
+
+        //Mantener la posición del cursor al formatear el valor
+        const cursorPosition = e.target.selectionStart;
+        e.target.value = value;
+
+        //Ajustar la posición del cursor después de formatear
+        let newCursorPosition = cursorPosition;
+
+        //Si el cursor estaba justo antes del '/'
+        if (cursorPosition > 2 && cursorPosition <= 3) {
+            newCursorPosition = cursorPosition + 1;
+        }
+
+        e.target.setSelectionRange(newCursorPosition, newCursorPosition);
+    });
+});
+
+//Formato de ingreso de CVV (máximo 3 números)
+document.addEventListener('DOMContentLoaded', function () {
+    const cvvInput = document.getElementById('cvv');
+
+    cvvInput.addEventListener('input', function (e) {
+        //Elimina cualquier carácter no numérico
+        let value = e.target.value.replace(/\D/g, '');
+        
+        //Limita el valor a 3 dígitos
+        if (value.length > 3) {
+            value = value.slice(0, 3);
+        }
+
+        //Actualiza el valor del campo
+        e.target.value = value;
+    });
+});
